@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import "./Style.css";
+import "../cssfiles/Style.css";
 import profileImg from "../assets/profile.jpeg";
 
-function Hero() {
+
+const Hero = () => {
   const roles = [
     "Frontend Developer",
     "UI/UX Designer",

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import "./Style.css"
+import "../cssfiles/Style.css"
 
 
 
-function Navbar() {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (

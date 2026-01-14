@@ -1,0 +1,152 @@
+/* skills section style */
+.skills-tree {
+  background: #020617;
+  padding: 120px 20px;
+  text-align: center;
+  color: #cbd5f5;
+}
+
+/* ===== CENTER ===== */
+.center-box {
+  display: inline-block;
+  padding: 12px 30px;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  font-weight: 600;
+  position: relative;
+  opacity: 0;
+}
+
+.skills-tree.animate .center-box {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* vertical main line */
+
+.center-box::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 135%;
+  width: 2px;
+  height: 100px;
+  background: #38bdf8;
+}
+
+.skills-tree.animate .center-box::after {
+  animation: drawDown 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* ===== BRANCHES ===== */
+.branches {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  position: relative;
+}
+
+/* horizontal line */
+.branches::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+}
+
+.skills-tree.animate .branches::before {
+  animation: drawAcross 1.2s ease forwards;
+  animation-delay: 1.3s;
+}
+
+/* ===== INDIVIDUAL BRANCH ===== */
+.branch h3 {
+  color: #e0f2fe;
+  margin-bottom: 12px;
+}
+
+/* vertical branch → skills line */
+.branch-line {
+  width: 2px;
+  height: 0;
+  margin: 0 auto 20px;
+  background: #38bdf8;
+}
+
+.skills-tree.animate .branch-line {
+  animation: drawDown 0.6s ease forwards;
+  animation-delay: 2.4s;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* skill pill */
+.skills span {
+  opacity: 0;
+  transform: translateY(10px);
+  padding: 6px 14px;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  background: #020617;
+  font-size: 13px;
+}
+
+/* stagger animation */
+.skills-tree.animate .skills span {
+  animation: pillFade 0.4s ease forwards;
+}
+
+/* hover glow */
+.skills span:hover {
+  color: #38bdf8;
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes drawDown {
+  from { height: 0; }
+  to { height: 40px; }
+}
+
+@keyframes drawAcross {
+  from { width: 0; }
+  to { width: 720px; }
+}
+
+@keyframes pillFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .branches {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .branches::before,
+  .center-box::after,
+  .branch-line {
+    display: none;
+  }
+}
+
+/* end of skills section style */
